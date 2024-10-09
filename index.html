@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    
+    <!-- Librerías Externas -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos del cuerpo */
+        body {
+            background: linear-gradient(to right, #a7c7e7, #bbcde5); /* Degradado azul suave */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Contenedor principal */
+        .container {
+            text-align: center;
+            background: #f5f5f5;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container:before, .container:after {
+            content: "";
+            position: absolute;
+            background: #bbcde5;
+            width: 200%;
+            height: 100%;
+            top: -10%;
+            left: -50%;
+            border-radius: 50%;
+            animation: ripple 8s linear infinite;
+            opacity: 0.2;
+        }
+
+        .container:after {
+            animation-delay: 4s;
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(2); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #5a85b2; /* Azul suave */
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .message {
+            font-size: 1.6rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .friend-name {
+            font-weight: bold;
+            color: #5a85b2;
+            font-size: 1.8rem;
+        }
+
+        .signature {
+            color: #5a85b2;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 1.3rem;
+            color: #444;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            color: #5a85b2;
+            margin: 15px;
+            transition: transform 0.3s;
+        }
+
+        .icon:hover {
+            transform: scale(1.2);
+        }
+
+        /* Efectos de transición */
+        [data-aos] {
+            transition: all 0.8s ease;
+        }
+
+        /* Globos de fondo */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background-color: #a7c7e7;
+            border-radius: 50%;
+            bottom: -100px;
+            animation: rise 6s infinite;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .balloon:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .balloon:nth-child(2) { left: 25%; animation-delay: 2s; }
+        .balloon:nth-child(3) { left: 50%; animation-delay: 4s; }
+        .balloon:nth-child(4) { left: 75%; animation-delay: 6s; }
+
+        @keyframes rise {
+            0% { bottom: -100px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 110%; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor Principal -->
+    <div class="container" data-aos="fade-up">
+        <h1>¡Feliz Cumpleaños Alexa!</h1>
+        <div class="message" data-aos="fade-up">
+            <p>Querida <span class="friend-name">Alexa</span>,</p>
+            <p id="typed"></p>
+        </div>
+        <footer data-aos="fade-up">
+            <p>Con mucho cariño, <br> Tu Amigo <span class="signature">Junnior</span></p>
+            <div>
+                <i class="fas fa-heart icon"></i>
+                <i class="fas fa-gift icon"></i>
+                <i class="fas fa-birthday-cake icon"></i>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Globos flotantes -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Librerías Externas -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Inicializar AOS
+        AOS.init();
+
+        // Efecto de texto con Typed.js
+        var typed = new Typed('#typed', {
+            strings: [
+                "¡Feliz cumpleaños, Alexa! Este es tu día, aunque un poco tarde XD.", 
+                "Es un día para que te sientas bien, querida, amada y valorada, como deberían ser cada uno de los días de tu vida,", 
+                "pero con una gran fiesta contigo como protagonista. ¡Te quiero mucho!"
+            ],
+            typeSpeed: 45,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+</body>
+</html>
